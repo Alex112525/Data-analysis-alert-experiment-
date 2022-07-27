@@ -1,0 +1,41 @@
+{
+    "Markers": [
+        {
+            "endDatetime": "2022-07-22T09:58:49.780791-05:00",
+            "extras": {
+            },
+            "index": 1,
+            "label": "Eyes Opened",
+            "originalEndDatetime": "2022-07-22T09:58:49.779497-05:00",
+            "originalStartDatetime": "2022-07-22T09:58:34.982499-05:00",
+            "port": "Baseline EmotivPRO",
+            "startDatetime": "2022-07-22T09:58:34.981078-05:00",
+            "type": "interval",
+            "uuid": "d1148280-d5cd-4b48-9f9f-7ecb6251ebc0",
+            "value": 1,
+            "value_type": "number"
+        },
+        {
+            "endDatetime": "2022-07-22T09:59:12.166669-05:00",
+            "extras": {
+            },
+            "index": 2,
+            "label": "Eyes Closed",
+            "originalEndDatetime": "2022-07-22T09:59:12.168510-05:00",
+            "originalStartDatetime": "2022-07-22T09:58:57.540144-05:00",
+            "port": "Baseline EmotivPRO",
+            "startDatetime": "2022-07-22T09:58:57.541146-05:00",
+            "type": "interval",
+            "uuid": "dac61c53-5bc0-4a78-8ef0-d00b89eacc70",
+            "value": 3,
+            "value_type": "number"
+        }
+    ],
+    "connectionType": "dongle",
+    "exportApp": "com.emotiv.emotivpro",
+    "exportTime": "2022-07-25T20:31:36.419-05:00",
+    "headsetType": "EPOCPLUS",
+    "mappings": null,
+    "recordId": "0b9395d1-005e-4a6b-9b2f-9ea2ad87137a",
+    "user": "niclab_emotive"
+}
