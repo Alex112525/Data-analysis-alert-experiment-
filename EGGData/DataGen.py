@@ -15,6 +15,9 @@ for sub in subjects:
     set2 = frontal[11520:15360]
     set3 = frontal[15360:]
 
+    # New DataFrame for all sets
+    Gen = pd.DataFrame()
+
     # Points where the oddball sound appears
     oddballs = [[768, 1024, 1344, 1792, 3200],
                 [768, 1024, 1344, 1792, 3200],
@@ -32,9 +35,14 @@ for sub in subjects:
         Setx.reset_index(drop=True, inplace=True)
         Setx.columns = [labels[i]]
         Setx.plot(kind="line")
-        plt.close()
+
+        Gen = pd.concat([Gen, Setx.transpose()])
 
         # Save a csv of each set and a plot of the signal
         os.makedirs("D:/Experimento/Data/" + sub, exist_ok=True)
         plt.savefig("D:/Experimento/Data/" + sub + "/" + labels[i] + ".png")
         Setx.to_csv("D:/Experimento/Data/" + sub + "/" + labels[i] + ".csv")
+        plt.close()
+
+    Gen.to_csv("D:/Experimento/Data/" + sub + "/General.csv")
+
