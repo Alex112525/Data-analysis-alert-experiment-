@@ -15,13 +15,12 @@ for sub in subjects:
     set2 = frontal[11520:15360]
     set3 = frontal[15360:]
 
-    # New DataFrame for all sets
     Gen = pd.DataFrame()
 
     # Points where the oddball sound appears
     oddballs = [[768, 1024, 1344, 1792, 3200],
-                [768, 1024, 1344, 1792, 3200],
-                [768+25, 1024+25, 1344+25, 1792+25, 3200+25]]
+                [256, 512, 1664, 2176, 3200],
+                [1152+32, 1792+32, 1920+32, 2304+32, 2880+32]]
     sets = [set1, set2, set3]
     labels = ["set1", "set2", "set3"]
     cols = frontal.columns
@@ -30,7 +29,7 @@ for sub in subjects:
         Setx = pd.DataFrame()
         for col in cols:                # Iterate each Frontal signal in each set
             for x in oddball:
-                Setx = pd.concat([Setx, setx[col][x:x + 64]])   # Concate each 64 sps after oddball sound
+                Setx = pd.concat([Setx, setx[col][x:x + 128]])   # Concat each "x" sps after oddball sound
 
         Setx.reset_index(drop=True, inplace=True)
         Setx.columns = [labels[i]]
@@ -39,10 +38,10 @@ for sub in subjects:
         Gen = pd.concat([Gen, Setx.transpose()])
 
         # Save a csv of each set and a plot of the signal
-        os.makedirs("D:/Experimento/Data/" + sub, exist_ok=True)
-        plt.savefig("D:/Experimento/Data/" + sub + "/" + labels[i] + ".png")
-        Setx.to_csv("D:/Experimento/Data/" + sub + "/" + labels[i] + ".csv")
+        os.makedirs("D:/Experimento/Data128/" + sub, exist_ok=True)
+        plt.savefig("D:/Experimento/Data128/" + sub + "/" + labels[i] + ".png")
+        Setx.to_csv("D:/Experimento/Data128/" + sub + "/" + labels[i] + ".csv")
         plt.close()
 
-    Gen.to_csv("D:/Experimento/Data/" + sub + "/General.csv")
+    Gen.to_csv("D:/Experimento/Data128/" + sub + "/General.csv")
 
