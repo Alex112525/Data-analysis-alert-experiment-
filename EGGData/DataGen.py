@@ -29,7 +29,7 @@ for sub in subjects:
         Setx = pd.DataFrame()
         for col in cols:                # Iterate each Frontal signal in each set
             for x in oddball:
-                Setx = pd.concat([Setx, setx[col][x:x + 128]])   # Concat each "x" sps after oddball sound
+                Setx = pd.concat([Setx, setx[col][x:x + 64]])   # Concat each "x" sps after oddball sound
 
         Setx.reset_index(drop=True, inplace=True)
         Setx.columns = [labels[i]]
@@ -38,9 +38,9 @@ for sub in subjects:
         Gen = pd.concat([Gen, Setx.transpose()])
 
         # Save a csv of each set and a plot of the signal
-        os.makedirs("D:/Experimento/Data128/" + sub, exist_ok=True)
-        plt.savefig("D:/Experimento/Data128/" + sub + "/" + labels[i] + ".png")
-        Setx.to_csv("D:/Experimento/Data128/" + sub + "/" + labels[i] + ".csv")
+        os.makedirs("D:/Experimento/Data64/" + sub, exist_ok=True)
+        plt.savefig("D:/Experimento/Data64/" + sub + "/" + labels[i] + ".svg", format='svg', dpi=1200)
+        Setx.to_csv("D:/Experimento/Data64/" + sub + "/" + labels[i] + ".csv")
         plt.close()
 
     Gen.to_csv("D:/Experimento/Data128/" + sub + "/General.csv")

@@ -28,7 +28,6 @@ for config in confs:
             Setx = pd.concat([Setx, setx["Value"][x:x + 64]])  # Concat each "x" sps after oddball sound
 
         Setx.reset_index(drop=True, inplace=True)
-        print(Setx)
         Setx.columns = [labels[i]]
         Setx.plot(kind="line")
 
@@ -36,7 +35,7 @@ for config in confs:
 
         # Save a csv of each set and a plot of the signal
         os.makedirs("D:/Experimento/Model_Data64/" + config, exist_ok=True)
-        plt.savefig("D:/Experimento/Model_Data64/" + config + "/" + labels[i] + ".png")
+        plt.savefig("D:/Experimento/Model_Data64/" + config + "/" + labels[i] + ".svg", format='svg', dpi=1200)
         Setx.to_csv("D:/Experimento/Model_Data64/" + config + "/" + labels[i] + ".csv")
         plt.close()
 
